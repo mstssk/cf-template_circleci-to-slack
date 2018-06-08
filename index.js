@@ -38,6 +38,8 @@ exports.circleci2slack = (req, res) => {
 
 	const config = CONFIGURES.find(c => c.branches.includes(payload.branch) && c.statuses.includes(payload.status));
 	if (config == null) {
+		console.log("NOOP");
+		res.status(200).send("NOOP");
 		return; // NOOP
 	}
 
